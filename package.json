@@ -1,0 +1,88 @@
+{
+  "name": "elastic-muto",
+  "version": "0.0.0",
+  "description": "Easy expressive search queries for Elasticsearch",
+  "main": "lib/index.js",
+  "files": [
+    "browser/",
+    "lib/",
+    "src/",
+    "repl.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build:parser": "node build/build-parser.js",
+    "build:babel": "cross-env BABEL_ENV=production babel src --out-dir lib",
+    "build:umd": "webpack lib --config build/webpack.config.js browser/elastic-muto.min.js",
+    "build:docs": "documentation build src/index.js --github -o docs -f html -c ./docs/documentation.yml --name elastic-muto",
+    "build": "npm run build:parser && npm run build:babel && npm run build:umd && npm run build:docs",
+    "lint": "eslint src test build",
+    "lint:fix": "npm run lint -- --fix",
+    "lint-staged": "lint-staged",
+    "test": "jest",
+    "check": "npm run lint && npm test -- --coverage",
+    "report": "npm test -- --coverage --coverageReporters=html --coverageReporters=text",
+    "coverage": "cat ./coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/booleanapp/elastic-muto.git"
+  },
+  "keywords": [
+    "elasticsearch",
+    "search",
+    "elasticjs",
+    "elastic search",
+    "elastic-builder",
+    "elasticsearch query",
+    "elasticsearch query DSL",
+    "elasticsearch query builder",
+    "pegjs",
+    "peg.js"
+  ],
+  "author": "Suhas Karanth <sudo.suhas@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/booleanapp/elastic-muto/issues"
+  },
+  "homepage": "https://muto.js.org",
+  "pre-commit": "lint-staged",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
+  },
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "cosmiconfig": "^2.1.3",
+    "debug": "^2.6.8",
+    "elastic-builder": "^0.4.4",
+    "lodash.hasin": "^4.5.2",
+    "lodash.isempty": "^4.4.0",
+    "lodash.isfunction": "^3.0.8",
+    "lodash.isnil": "^4.0.0",
+    "lodash.isstring": "^4.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-jest": "^20.0.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-register": "^6.24.1",
+    "coveralls": "^2.13.1",
+    "cross-env": "^5.0.0",
+    "documentation": "^4.0.0-rc.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-prettier": "^2.1.1",
+    "jest": "^20.0.4",
+    "js-combinatorics": "^0.5.2",
+    "lint-staged": "^3.6.0",
+    "pegjs": "^0.10.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.3.1",
+    "strip-loader": "^0.1.2",
+    "webpack": "^2.6.1"
+  }
+}

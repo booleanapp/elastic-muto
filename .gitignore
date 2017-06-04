@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# generated files
+lib
+
+# experiments
+experiment.js

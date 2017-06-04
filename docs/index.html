@@ -1,0 +1,2243 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>elastic-muto 0.1.0 | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
+</head>
+<body class='documentation'>
+  <div class='max-width-4 mx-auto'>
+    <div class='clearfix md-mxn2'>
+      <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>elastic-muto</h3>
+          <div class='mb1'><code>0.1.0</code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#elastic-muto'
+                  class="h5 bold black caps">
+                  elastic-muto
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#parse'
+                  class="">
+                  parse
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#configuration'
+                  class="h5 bold black caps">
+                  Configuration
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#expr-builders'
+                  class="h5 bold black caps">
+                  Expr Builders
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#where'
+                  class=" toggle-sibling">
+                  Where
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#Where#and'
+                        class='regular pre-open'>
+                        #and
+                      </a></li>
+                      
+                      <li><a
+                        href='#Where#or'
+                        class='regular pre-open'>
+                        #or
+                      </a></li>
+                      
+                      <li><a
+                        href='#Where#build'
+                        class='regular pre-open'>
+                        #build
+                      </a></li>
+                      
+                      <li><a
+                        href='#Where#toString'
+                        class='regular pre-open'>
+                        #toString
+                      </a></li>
+                      
+                      <li><a
+                        href='#Where#toJSON'
+                        class='regular pre-open'>
+                        #toJSON
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#condition'
+                  class=" toggle-sibling">
+                  Condition
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#Condition#prop'
+                        class='regular pre-open'>
+                        #prop
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#is'
+                        class='regular pre-open'>
+                        #is
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#eq'
+                        class='regular pre-open'>
+                        #eq
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#ne'
+                        class='regular pre-open'>
+                        #ne
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#lt'
+                        class='regular pre-open'>
+                        #lt
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#lte'
+                        class='regular pre-open'>
+                        #lte
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#gt'
+                        class='regular pre-open'>
+                        #gt
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#gte'
+                        class='regular pre-open'>
+                        #gte
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#exists'
+                        class='regular pre-open'>
+                        #exists
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#missing'
+                        class='regular pre-open'>
+                        #missing
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#contains'
+                        class='regular pre-open'>
+                        #contains
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#notContains'
+                        class='regular pre-open'>
+                        #notContains
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#build'
+                        class='regular pre-open'>
+                        #build
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#toString'
+                        class='regular pre-open'>
+                        #toString
+                      </a></li>
+                      
+                      <li><a
+                        href='#Condition#toJSON'
+                        class='regular pre-open'>
+                        #toJSON
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#syntaxerror'
+                  class="">
+                  SyntaxError
+                  
+                </a>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div class='fix-margin-3'>
+        
+          
+            <div class='keyline-top-not py2'><section class='py2 clearfix'>
+
+  <h2 id='elastic-muto' class='mt0'>
+    elastic-muto
+  </h2>
+
+  
+    <p><a href="https://github.com/booleanapp/elastic-muto">https://github.com/booleanapp/elastic-muto</a></p>
+<p><code>elastic-muto</code> is a library for easliy building elasticsearch queries with simple expressive expressions.
+It also allows full control over query generation if you want different behavior.</p>
+<p>The complete library documentation is present here.</p>
+<pre class='hljs'><span class="hljs-comment">// Import the library</span>
+<span class="hljs-keyword">const</span> muto = <span class="hljs-built_in">require</span>(<span class="hljs-string">'elastic-muto'</span>);
+
+<span class="hljs-keyword">const</span> qry = muto.parse(<span class="hljs-string">'["elasticsearch"] == "awesome" and ["unicorn"] exists'</span>);
+qry.toJSON();
+{
+  <span class="hljs-string">"bool"</span>: {
+    <span class="hljs-string">"must"</span>: [
+      {
+        <span class="hljs-string">"term"</span>: { <span class="hljs-string">"elasticsearch.keyword"</span>: <span class="hljs-string">"awesome"</span> }
+      },
+      {
+        <span class="hljs-string">"exists"</span>: { <span class="hljs-string">"field"</span>: <span class="hljs-string">"unicorn"</span> }
+      }
+    ]
+  }
+}</pre>
+<p><strong>Demo</strong> - <a href="https://muto.js.org/">https://muto.js.org/</a></p>
+<p>The parser was originally developed for parsing filter conditions for the <a href="https://www.booleanapp.com/docs/v1_score.html">GET score endpoint</a> of <a href="https://www.booleanapp.com/">Boolean</a>.</p>
+
+  
+</section>
+</div>
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='parse'>
+      parse
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/parse.js#L84-L117'>
+      <span>src/parse.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Parses given expression and generates an <code>elastic-builder</code> query object.</p>
+
+
+  <div class='pre p1 fill-light mt0'>parse(expr: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="#where">Where</a> | <a href="#condition">Condition</a>), notAnalysedFields: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>?): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>expr</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="#where">Where</a> | <a href="#condition">Condition</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>notAnalysedFields</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        <code>elastic-builder</code>
+ 
+<code>BoolQuery</code>
+ object generated by
+parsing the expression
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Pass expression as string</span>
+<span class="hljs-keyword">const</span> qry = muto.parse(
+    <span class="hljs-string">'["discount"] is false or (["psngr_cnt"] &gt; 81 and ["booking_mode"] contains "Airport")'</span>
+)
+
+<span class="hljs-comment">// OR</span>
+<span class="hljs-comment">// Pass conditions using helper classes</span>
+<span class="hljs-keyword">const</span> qry = muto.parse(
+    muto.where()
+        .or(muto.cn(<span class="hljs-string">'discount'</span>).is(<span class="hljs-literal">false</span>))
+        .or(
+            muto.where()
+                .and(muto.cn(<span class="hljs-string">'psngr_cnt'</span>, <span class="hljs-string">'gt'</span>, <span class="hljs-number">81</span>))
+                .and(<span class="hljs-string">'["booking_mode"] contains "Airport"'</span>)
+        )
+);
+
+qry.toJSON()
+{
+  <span class="hljs-string">"bool"</span>: {
+    <span class="hljs-string">"should"</span>: [
+      { <span class="hljs-string">"term"</span>: { <span class="hljs-string">"discount"</span>: <span class="hljs-literal">false</span> } },
+      {
+        <span class="hljs-string">"bool"</span>: {
+          <span class="hljs-string">"must"</span>: [
+            {
+              <span class="hljs-string">"range"</span>: { <span class="hljs-string">"psngr_cnt"</span>: { <span class="hljs-string">"gt"</span>: <span class="hljs-number">81</span> } }
+            },
+            {
+              <span class="hljs-string">"match"</span>: { <span class="hljs-string">"booking_mode"</span>: <span class="hljs-string">"Airport"</span> }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <div class='keyline-top-not py2'><section class='py2 clearfix'>
+
+  <h2 id='configuration' class='mt0'>
+    Configuration
+  </h2>
+
+  
+    <h3>Custom configuration</h3>
+<p>The queries generated by <code>elastic-muto</code> can be completely customised.
+<a href="https://github.com/davidtheclark/cosmiconfig">cosmiconfig</a> is used to load the config.
+A js file, with the file name <code>muto.config.js</code>, will be loaded and used if present.</p>
+<p>The file should export a plain object with a function which returns an <code>elastic-builder</code> <a href="https://elastic-builder.js.org/docs/#boolquery"><code>BoolQuery</code></a> object.
+You can define(and override) any of the functions defined in <a href="https://github.com/booleanapp/elastic-muto/blob/master/src/query-builder-def.js"><code>src/query-builder-def.js</code></a></p>
+<p>Example:</p>
+<pre class='hljs'><span class="hljs-meta">'use strict'</span>;
+
+<span class="hljs-built_in">module</span>.exports = {
+    <span class="hljs-comment">// Condition builder for property exists</span>
+    exists(key) {
+        <span class="hljs-keyword">return</span> bob.existsQuery(<span class="hljs-string">`shiny_<span class="hljs-subst">${key}</span>`</span>);
+    },
+};</pre>
+<p>You can also customise the construction of Property Keys. Check out <a href="https://github.com/booleanapp/elastic-muto/blob/master/examples/custom-config">this example</a>
+which defines a custom config.</p>
+
+  
+</section>
+</div>
+          
+        
+          
+            <div class='keyline-top-not py2'><section class='py2 clearfix'>
+
+  <h2 id='expr-builders' class='mt0'>
+    Expr Builders
+  </h2>
+
+  
+    <p>These classes are purely optional helpers for building <code>Where</code> expressions.
+<code>muto.parse</code> can handle strings just fine.</p>
+<p>There are two ways to use the classes for constructing queries:-</p>
+<pre class='hljs'><span class="hljs-comment">// Import the library</span>
+<span class="hljs-keyword">const</span> muto = <span class="hljs-built_in">require</span>(<span class="hljs-string">'elastic-muto'</span>);
+
+<span class="hljs-comment">// Use `new` keyword for constructor instances of class</span>
+<span class="hljs-keyword">const</span> cn = <span class="hljs-keyword">new</span> muto.Condition(<span class="hljs-string">'elasticsearch'</span>).eq(<span class="hljs-string">'awesome'</span>);
+<span class="hljs-keyword">const</span> expr = <span class="hljs-keyword">new</span> muto.Where(cn).and(<span class="hljs-string">'["unicorn"] exists'</span>);
+
+<span class="hljs-comment">// Or use helper methods which construct the object without need for the `new` keyword</span>
+<span class="hljs-keyword">const</span> cn = muto.cn(<span class="hljs-string">'elasticsearch'</span>).eq(<span class="hljs-string">'awesome'</span>); <span class="hljs-comment">// or muto.condition</span>
+<span class="hljs-keyword">const</span> expr = muto.where(cn).and(<span class="hljs-string">'["unicorn"] exists'</span>)
+
+<span class="hljs-keyword">const</span> qry = muto.parse(expr);
+qry.toJSON();
+{
+  <span class="hljs-string">"bool"</span>: {
+    <span class="hljs-string">"must"</span>: [
+      {
+        <span class="hljs-string">"term"</span>: { <span class="hljs-string">"elasticsearch.keyword"</span>: <span class="hljs-string">"awesome"</span> }
+      },
+      {
+        <span class="hljs-string">"exists"</span>: { <span class="hljs-string">"field"</span>: <span class="hljs-string">"unicorn"</span> }
+      }
+    ]
+  }
+}</pre>
+
+  
+</section>
+</div>
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='where'>
+      Where
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/where.js#L28-L113'>
+      <span>src/where.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Class for building <code>Where</code> expressions</p>
+
+
+  <div class='pre p1 fill-light mt0'>new Where(condition: (<a href="#condition">Condition</a> | <a href="#where">Where</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>condition</span> <code class='quiet'>((<a href="#condition">Condition</a> | <a href="#where">Where</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)?)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> where = muto.where()
+    .or(muto.cn(<span class="hljs-string">'discount'</span>).is(<span class="hljs-literal">false</span>))
+    .or(
+        muto.where()
+            <span class="hljs-comment">// Pass conditions using helper classes</span>
+            .and(muto.cn(<span class="hljs-string">'psngr_cnt'</span>, <span class="hljs-string">'gt'</span>, <span class="hljs-number">81</span>))
+            <span class="hljs-comment">// Or a simple string will do</span>
+            .and(<span class="hljs-string">'["booking_mode"] contains "Airport"'</span>)
+    )
+    .build();
+<span class="hljs-string">'["discount"] is false or (["psngr_cnt"] &gt; 81 and ["booking_mode"] contains "Airport")'</span></pre>
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='Where#and'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>and(condition)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/where.js#L64-L66'>
+      <span>src/where.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds an <code>and</code> condition. The condition can be instance of <code>Condition</code>,
+<code>Where</code>(nested expr) or just a string.</p>
+
+
+  <div class='pre p1 fill-light mt0'>and(condition: (<a href="#condition">Condition</a> | <a href="#where">Where</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)): <a href="#where">Where</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>condition</span> <code class='quiet'>((<a href="#condition">Condition</a> | <a href="#where">Where</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    The condition to be added
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#where">Where</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>: If 
+<code>and</code>
+, 
+<code>or</code>
+ are called on the same instance of 
+<code>Where</code>
+</li>
+      
+    </ul>
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Where#or'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>or(condition)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/where.js#L76-L78'>
+      <span>src/where.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds an <code>or</code> condition. The condition can be instance of <code>Condition</code>,
+<code>Where</code>(nested expr) or just a string.</p>
+
+
+  <div class='pre p1 fill-light mt0'>or(condition: (<a href="#condition">Condition</a> | <a href="#where">Where</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)): <a href="#where">Where</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>condition</span> <code class='quiet'>((<a href="#condition">Condition</a> | <a href="#where">Where</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    The condition to be added
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#where">Where</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>: If 
+<code>and</code>
+, 
+<code>or</code>
+ are called on the same instance of 
+<code>Where</code>
+</li>
+      
+    </ul>
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Where#build'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>build()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/where.js#L86-L92'>
+      <span>src/where.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Build and return muto syntax for Where Expression</p>
+
+
+  <div class='pre p1 fill-light mt0'>build(): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        returns a string which maps to the muto syntax for
+Where Expression
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Where#toString'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>toString()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/where.js#L100-L102'>
+      <span>src/where.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Hotwire to return <code>this.build()</code></p>
+
+
+  <div class='pre p1 fill-light mt0'>toString(): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Where#toJSON'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>toJSON()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/where.js#L110-L112'>
+      <span>src/where.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Hotwire to return <code>this.build()</code></p>
+
+
+  <div class='pre p1 fill-light mt0'>toJSON(): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='condition'>
+      Condition
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L21-L222'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Class for building Property Condition to be used with <code>Where</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>new Condition(prop: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, operator: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, value: any?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>prop</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</code>
+	    Name of the property key to crate condition against
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>operator</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</code>
+	    Operator for the condition. One of 
+<code>is</code>
+, 
+<code>eq</code>
+,
+
+<code>ne</code>
+, 
+<code>lt</code>
+, 
+<code>lte</code>
+, 
+<code>gt</code>
+, 
+<code>gte</code>
+, 
+<code>exists</code>
+, 
+<code>missing</code>
+, 
+<code>contain</code>
+, 
+<code>notcontain</code>
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any?)</code>
+	    Value for the property condition
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> condition = muto.cn(<span class="hljs-string">'psngr_cnt'</span>, <span class="hljs-string">'gt'</span>, <span class="hljs-number">81</span>);
+
+condition.build()
+<span class="hljs-string">'["psngr_cnt"]" &gt; 81'</span></pre>
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='Condition#prop'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>prop(prop)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L44-L47'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the property name for condition.</p>
+
+
+  <div class='pre p1 fill-light mt0'>prop(prop: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="#condition">Condition</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>prop</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Name of the property key to crate condition against
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#condition">Condition</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#is'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>is(trueOrFalse)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L55-L59'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the condition type to boolean with given parameter.</p>
+
+
+  <div class='pre p1 fill-light mt0'>is(trueOrFalse: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="#condition">Condition</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>trueOrFalse</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
+	    <code>true</code>
+ or 
+<code>false</code>
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#condition">Condition</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#eq'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>eq(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L67-L71'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the type of condition as equality with given value.</p>
+
+
+  <div class='pre p1 fill-light mt0'>eq(value: any): <a href="#condition">Condition</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    A valid string/number/date to check equality against
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#condition">Condition</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#ne'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>ne(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L79-L83'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the type of condition as not equal to given value.</p>
+
+
+  <div class='pre p1 fill-light mt0'>ne(value: any): <a href="#condition">Condition</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    A valid string/number to check inequality against
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#condition">Condition</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#lt'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>lt(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L91-L95'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the type of condition as less than given value.</p>
+
+
+  <div class='pre p1 fill-light mt0'>lt(value: any): <a href="#condition">Condition</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    A valid string/number/date.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#condition">Condition</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#lte'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>lte(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L103-L107'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the type of condition as less than or equal to given value.</p>
+
+
+  <div class='pre p1 fill-light mt0'>lte(value: any): <a href="#condition">Condition</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    A valid string/number/date.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#condition">Condition</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#gt'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>gt(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L115-L119'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the type of condition as greater than given value</p>
+
+
+  <div class='pre p1 fill-light mt0'>gt(value: any): <a href="#condition">Condition</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    A valid string/number/date.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#condition">Condition</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#gte'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>gte(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L127-L131'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the type of condition as greater than or equal to given value</p>
+
+
+  <div class='pre p1 fill-light mt0'>gte(value: any): <a href="#condition">Condition</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    A valid string/number/date.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#condition">Condition</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#exists'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>exists()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L138-L141'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the type of condition to check value exists.</p>
+
+
+  <div class='pre p1 fill-light mt0'>exists(): <a href="#condition">Condition</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#condition">Condition</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#missing'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>missing()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L148-L151'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the type of condition to check value is missing.</p>
+
+
+  <div class='pre p1 fill-light mt0'>missing(): <a href="#condition">Condition</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#condition">Condition</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#contains'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>contains(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L159-L163'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the type of condition to check property contains given value.</p>
+
+
+  <div class='pre p1 fill-light mt0'>contains(value: any): <a href="#condition">Condition</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    A valid string
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#condition">Condition</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#notContains'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>notContains(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L181-L185'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the type of condition to check property does not contain given value.</p>
+
+
+  <div class='pre p1 fill-light mt0'>notContains(value: any): <a href="#condition">Condition</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    A valid string
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#condition">Condition</a></code>:
+        returns 
+<code>this</code>
+ so that calls can be chained
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#build'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>build()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L193-L201'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Builds and returns muto syntax for Property Condition</p>
+
+
+  <div class='pre p1 fill-light mt0'>build(): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        returns a string which maps to the muto syntax for
+Property Condition
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#toString'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>toString()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L209-L211'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Hotwire to return <code>this.build()</code></p>
+
+
+  <div class='pre p1 fill-light mt0'>toString(): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Condition#toJSON'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>toJSON()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/condition.js#L219-L221'>
+      <span>src/condition.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Hotwire to return <code>this.build()</code></p>
+
+
+  <div class='pre p1 fill-light mt0'>toJSON(): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='syntaxerror'>
+      SyntaxError
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/booleanapp/elastic-muto/blob/140ae2e787a2d3ca212f9360ff19716c5b0f06ef/src/index.js#L15-L15'>
+      <span>src/index.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Syntax error thrown by PEG.js on trying to parse an invalid expression</p>
+
+
+  <div class='pre p1 fill-light mt0'>SyntaxError</div>
+  
+  
+    <p>
+      Extends
+      
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a>
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>
