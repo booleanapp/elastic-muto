@@ -1,5 +1,5 @@
 ## NOT YET PUBLISHED
-This module will be published once this [pull request](davidtheclark/cosmiconfig#67) is accepted.
+This module will be published once this [pull request](https://github.com/davidtheclark/cosmiconfig/pull/67) is accepted.
 
 <p align="center">
     <img src="assets/muto-logo.png" alt="elastic-muto"/>
