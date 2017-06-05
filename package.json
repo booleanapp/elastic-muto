@@ -1,6 +1,6 @@
 {
   "name": "elastic-muto",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Easy expressive search queries for Elasticsearch",
   "main": "lib/index.js",
   "files": [
