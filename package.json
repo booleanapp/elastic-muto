@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.23.0",
-    "cosmiconfig": "^2.1.3",
+    "cosmiconfig": "git://github.com/sudo-suhas/cosmiconfig.git#feat_load_sync",
     "debug": "^2.6.8",
     "elastic-builder": "^0.4.4",
     "lodash.hasin": "^4.5.2",
