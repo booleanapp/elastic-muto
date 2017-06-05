@@ -1,6 +1,4 @@
-<p align="center">
-    <img src="assets/muto-logo.png" alt="elastic-muto"/>
-</p>
+[![elastic-muto](assets/muto-logo.png)](https://muto.js.org)
 
 # elastic-muto
 
