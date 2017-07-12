@@ -4,6 +4,7 @@ const path = require('path');
 
 const webpack = require('webpack');
 const WebpackStrip = require('strip-loader');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     module: {
@@ -28,17 +29,24 @@ module.exports = {
             /cosmiconfig/,
             path.join(__dirname, 'cosmiconfig-noop.js')
         ),
-        new webpack.optimize.UglifyJsPlugin({
+        new UglifyJSPlugin({
+            sourceMap: false,
             beautify: false,
             mangle: {
-                screw_ie8: true,
+                toplevel: true,
                 keep_fnames: false
             },
-            compress: {
-                screw_ie8: true,
+            compressor: {
                 warnings: false,
-                // Drop console statements
-                drop_console: true
+                conditionals: true,
+                unused: true,
+                comparisons: true,
+                sequences: true,
+                dead_code: true,
+                evaluate: true,
+                if_return: true,
+                join_vars: true,
+                negate_iife: false
             },
             comments: false
         })
