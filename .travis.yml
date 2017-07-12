@@ -1,7 +1,5 @@
 language: node_js
-cache:
-  directories:
-    - node_modules
+cache: yarn
 node_js:
   - '8'
   - '7'
@@ -10,5 +8,5 @@ node_js:
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
-script: npm run check
-after_success: npm run coverage
+script: yarn run check
+after_success: yarn run coverage
