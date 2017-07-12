@@ -10,7 +10,9 @@ const pegjsDefPath = path.resolve(__dirname, '../src/muto.pegjs');
 const pegjsOutputPath = path.resolve(__dirname, '../src/muto-parser.js');
 
 const options = {
-    dependencies: { bob: 'elastic-builder' },
+    dependencies: {
+        BoolQuery: 'elastic-builder/lib/queries/compound-queries/bool-query'
+    },
     cache: true,
     optimize: 'speed',
     format: 'commonjs',

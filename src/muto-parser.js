@@ -6,7 +6,7 @@
 
 "use strict";
 
-var bob = require("elastic-builder");
+var BoolQuery = require("elastic-builder/lib/queries/compound-queries/bool-query");
 
 function peg$subclass(child, parent) {
   function ctor() { this.constructor = child; }
@@ -145,9 +145,9 @@ function peg$parse(input, options) {
 
       peg$c0 = peg$otherExpectation("Expression Wrapper"),
       peg$c1 = function(expr) {
-              return expr instanceof bob.BoolQuery
+              return expr instanceof BoolQuery
                   ? expr
-                  : bob.boolQuery().must(expr)
+                  : new BoolQuery().must(expr)
           },
       peg$c2 = peg$otherExpectation("Where Expression"),
       peg$c3 = "(",
@@ -158,12 +158,12 @@ function peg$parse(input, options) {
       peg$c8 = function(head, tail) {
               var conditions = tail;
               conditions.unshift(head);
-              return bob.boolQuery().must(conditions);
+              return new BoolQuery().must(conditions);
           },
       peg$c9 = function(head, tail) {
               var conditions = tail;
               conditions.unshift(head);
-              return bob.boolQuery().should(conditions);
+              return new BoolQuery().should(conditions);
           },
       peg$c10 = function(expr) { return expr; },
       peg$c11 = function(head, cond) { return cond; },
@@ -171,12 +171,12 @@ function peg$parse(input, options) {
       peg$c13 = function(head, torso, tail) {
               var conditions = torso.concat(tail);
               conditions.unshift(head);
-              return bob.boolQuery().must(conditions);
+              return new BoolQuery().must(conditions);
           },
       peg$c14 = function(head, torso, tail) {
               var conditions = torso.concat(tail);
               conditions.unshift(head);
-              return bob.boolQuery().should(conditions);
+              return new BoolQuery().should(conditions);
           },
       peg$c15 = peg$otherExpectation("Property Condition"),
       peg$c16 = function(cond) { return cond; },

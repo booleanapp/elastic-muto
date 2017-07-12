@@ -3,21 +3,21 @@
  */
 ExprWrapper "Expression Wrapper"
     = expr:Expression {
-        return expr instanceof bob.BoolQuery
+        return expr instanceof BoolQuery
             ? expr
-            : bob.boolQuery().must(expr)
+            : new BoolQuery().must(expr)
     }
 
 Expression "Where Expression"
     = '(' head:Expression tail:(And expr:Expression { return expr; })+ ')' {
         var conditions = tail;
         conditions.unshift(head);
-        return bob.boolQuery().must(conditions);
+        return new BoolQuery().must(conditions);
     }
     / '(' head:Expression tail:(Or expr:Expression { return expr; })+ ')' {
         var conditions = tail;
         conditions.unshift(head);
-        return bob.boolQuery().should(conditions);
+        return new BoolQuery().should(conditions);
     }
     / '(' expr:Expression ')' { return expr; }
     / head:PropertyCondition
@@ -25,28 +25,28 @@ Expression "Where Expression"
     tail:(And expr:Expression { return expr; })* {
         var conditions = torso.concat(tail);
         conditions.unshift(head);
-        return bob.boolQuery().must(conditions);
+        return new BoolQuery().must(conditions);
     }
     / head:PropertyCondition
     torso:(And cond:PropertyCondition { return cond; })*
     tail:(And expr:Expression { return expr; })+ {
         var conditions = torso.concat(tail);
         conditions.unshift(head);
-        return bob.boolQuery().must(conditions);
+        return new BoolQuery().must(conditions);
     }
     / head:PropertyCondition
     torso:(Or cond:PropertyCondition { return cond; })+
     tail:(Or expr:Expression { return expr; })* {
         var conditions = torso.concat(tail);
         conditions.unshift(head);
-        return bob.boolQuery().should(conditions);
+        return new BoolQuery().should(conditions);
     }
     / head:PropertyCondition
     torso:(Or cond:PropertyCondition { return cond; })*
     tail:(Or expr:Expression { return expr; })+ {
         var conditions = torso.concat(tail);
         conditions.unshift(head);
-        return bob.boolQuery().should(conditions);
+        return new BoolQuery().should(conditions);
     }
     / PropertyCondition
 
