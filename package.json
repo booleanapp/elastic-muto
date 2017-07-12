@@ -48,6 +48,7 @@
   "homepage": "https://muto.js.org",
   "pre-commit": "lint-staged",
   "jest": {
+    "testEnvironment": "node",
     "collectCoverageFrom": [
       "src/**/*.js"
     ]
