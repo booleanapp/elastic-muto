@@ -4,7 +4,6 @@
   "description": "Easy expressive search queries for Elasticsearch",
   "main": "lib/index.js",
   "files": [
-    "browser/",
     "lib/",
     "src/",
     "repl.js",
