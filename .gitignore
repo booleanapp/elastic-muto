@@ -62,3 +62,8 @@ lib
 
 # experiments
 experiment.js
+
+# generated docs
+browser/
+docs/assets/
+docs/index.html

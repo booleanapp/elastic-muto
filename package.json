@@ -1,6 +1,6 @@
 {
   "name": "elastic-muto",
-  "version": "0.1.2",
+  "version": "0.0.0-development",
   "description": "Easy expressive search queries for Elasticsearch",
   "main": "lib/index.js",
   "files": [
@@ -21,11 +21,11 @@
     "test": "jest",
     "check": "npm run lint && npm test -- --coverage",
     "report": "npm test -- --coverage --coverageReporters=html --coverageReporters=text",
-    "coverage": "cat ./coverage/lcov.info | coveralls"
+    "print-version": "cross-env-shell echo v$npm_package_version"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/booleanapp/elastic-muto.git"
+    "url": "https://github.com/booleanapp/elastic-muto.git"
   },
   "keywords": [
     "elasticsearch",
@@ -70,7 +70,6 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.26.0",
-    "coveralls": "^3.0.0",
     "cross-env": "^5.0.5",
     "documentation": "^5.3.2",
     "eslint": "^4.8.0",

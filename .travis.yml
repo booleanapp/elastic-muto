@@ -1,12 +1,28 @@
 language: node_js
-cache: yarn
+
 node_js:
   - '8'
   - '7'
   - '6'
   - '4'
+
 branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+  only:
+    - master
+
+cache: yarn
+
 script: yarn run check
-after_success: yarn run coverage
+
+after_success:
+  - yarn global add coveralls semantic-release gh-pages
+  - cat ./coverage/lcov.info | coveralls
+  - 'semantic-release pre &&
+    npm run -s build &&
+    gh-pages --add
+      --dist .
+      --src "{browser/*,docs/*}"
+      --repo "https://$GH_TOKEN@github.com/booleanapp/elastic-muto.git"
+      --message "docs: Build docs for `npm run -s print-version`" &&
+    npm publish &&
+    semantic-release post'
