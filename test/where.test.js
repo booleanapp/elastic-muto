@@ -41,7 +41,10 @@ describe('Where builder', () => {
     });
 
     it('can handle nested conditions', () => {
-        const where = new Where(cn1).and(cn2).and(new Where(strCn1).or(strCn2)).build();
+        const where = new Where(cn1)
+            .and(cn2)
+            .and(new Where(strCn1).or(strCn2))
+            .build();
         expect(where).toBe(
             `(${cn1.build()} and ${cn2.build()} and (${strCn1} or ${strCn2}))`
         );

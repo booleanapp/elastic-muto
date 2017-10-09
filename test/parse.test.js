@@ -106,7 +106,12 @@ describe('parse', () => {
             test(`${cnNamesMap[cn1]} and ${cnNamesMap[cn2]} and ${cnNamesMap[
                 cn3
             ]}`, () => {
-                const qry = parse(muto.where(cnMap[cn1]).and(cnMap[cn2]).and(cnMap[cn3]));
+                const qry = parse(
+                    muto
+                        .where(cnMap[cn1])
+                        .and(cnMap[cn2])
+                        .and(cnMap[cn3])
+                );
 
                 expect(qry).toBeInstanceOf(bob.BoolQuery);
                 expect(qry).toEqual(
@@ -115,7 +120,12 @@ describe('parse', () => {
             });
 
             test(`${cnNamesMap[cn1]} or ${cnNamesMap[cn2]} or ${cnNamesMap[cn3]}`, () => {
-                const qry = parse(muto.where(cnMap[cn1]).or(cnMap[cn2]).or(cnMap[cn3]));
+                const qry = parse(
+                    muto
+                        .where(cnMap[cn1])
+                        .or(cnMap[cn2])
+                        .or(cnMap[cn3])
+                );
 
                 expect(qry).toBeInstanceOf(bob.BoolQuery);
                 expect(qry).toEqual(
