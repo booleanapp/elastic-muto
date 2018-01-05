@@ -12,6 +12,8 @@ jest.mock('cosmiconfig', () => () => ({
 describe('parse', () => {
     it('reads custom config if applicable', () => {
         const qry = parse('["foo"] == "bar"');
-        expect(qry).toEqual(bob.boolQuery().must(bob.termQuery('$foo.keyword', 'bar')));
+        expect(qry).toEqual(
+            bob.boolQuery().must(bob.termQuery('$foo.keyword', 'bar'))
+        );
     });
 });

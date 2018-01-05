@@ -66,7 +66,9 @@ describe('parse', () => {
         test('string equals for not analyzed field', () => {
             const qry = parse(cnMap.strEq, ['elasticsearch']);
             expect(qry).toBeInstanceOf(bob.BoolQuery);
-            expect(qry).toEqual(bob.boolQuery().must(cnQryMap.strEqNotAnalyzed));
+            expect(qry).toEqual(
+                bob.boolQuery().must(cnQryMap.strEqNotAnalyzed)
+            );
         });
 
         test('string not equals for not analyzed field', () => {
@@ -86,7 +88,9 @@ describe('parse', () => {
                 const qry = parse(muto.where(cnMap[cn1]).and(cnMap[cn2]));
 
                 expect(qry).toBeInstanceOf(bob.BoolQuery);
-                expect(qry).toEqual(bob.boolQuery().must([cnQryMap[cn1], cnQryMap[cn2]]));
+                expect(qry).toEqual(
+                    bob.boolQuery().must([cnQryMap[cn1], cnQryMap[cn2]])
+                );
             });
 
             test(`${cnNamesMap[cn1]} or ${cnNamesMap[cn2]}`, () => {
@@ -103,9 +107,9 @@ describe('parse', () => {
             const cn1 = randCn(),
                 cn2 = randCn(),
                 cn3 = randCn();
-            test(`${cnNamesMap[cn1]} and ${cnNamesMap[cn2]} and ${cnNamesMap[
-                cn3
-            ]}`, () => {
+            test(`${cnNamesMap[cn1]} and ${cnNamesMap[cn2]} and ${
+                cnNamesMap[cn3]
+            }`, () => {
                 const qry = parse(
                     muto
                         .where(cnMap[cn1])
@@ -115,11 +119,15 @@ describe('parse', () => {
 
                 expect(qry).toBeInstanceOf(bob.BoolQuery);
                 expect(qry).toEqual(
-                    bob.boolQuery().must([cnQryMap[cn1], cnQryMap[cn2], cnQryMap[cn3]])
+                    bob
+                        .boolQuery()
+                        .must([cnQryMap[cn1], cnQryMap[cn2], cnQryMap[cn3]])
                 );
             });
 
-            test(`${cnNamesMap[cn1]} or ${cnNamesMap[cn2]} or ${cnNamesMap[cn3]}`, () => {
+            test(`${cnNamesMap[cn1]} or ${cnNamesMap[cn2]} or ${
+                cnNamesMap[cn3]
+            }`, () => {
                 const qry = parse(
                     muto
                         .where(cnMap[cn1])
@@ -129,15 +137,19 @@ describe('parse', () => {
 
                 expect(qry).toBeInstanceOf(bob.BoolQuery);
                 expect(qry).toEqual(
-                    bob.boolQuery().should([cnQryMap[cn1], cnQryMap[cn2], cnQryMap[cn3]])
+                    bob
+                        .boolQuery()
+                        .should([cnQryMap[cn1], cnQryMap[cn2], cnQryMap[cn3]])
                 );
             });
 
-            test(`(${cnNamesMap[cn1]} and ${cnNamesMap[cn2]}) or ${cnNamesMap[
-                cn3
-            ]}`, () => {
+            test(`(${cnNamesMap[cn1]} and ${cnNamesMap[cn2]}) or ${
+                cnNamesMap[cn3]
+            }`, () => {
                 const qry = parse(
-                    muto.where(muto.where(cnMap[cn1]).and(cnMap[cn2])).or(cnMap[cn3])
+                    muto
+                        .where(muto.where(cnMap[cn1]).and(cnMap[cn2]))
+                        .or(cnMap[cn3])
                 );
 
                 expect(qry).toBeInstanceOf(bob.BoolQuery);
@@ -145,17 +157,21 @@ describe('parse', () => {
                     bob
                         .boolQuery()
                         .should([
-                            bob.boolQuery().must([cnQryMap[cn1], cnQryMap[cn2]]),
+                            bob
+                                .boolQuery()
+                                .must([cnQryMap[cn1], cnQryMap[cn2]]),
                             cnQryMap[cn3]
                         ])
                 );
             });
 
-            test(`(${cnNamesMap[cn1]} or ${cnNamesMap[cn2]}) and ${cnNamesMap[
-                cn3
-            ]}`, () => {
+            test(`(${cnNamesMap[cn1]} or ${cnNamesMap[cn2]}) and ${
+                cnNamesMap[cn3]
+            }`, () => {
                 const qry = parse(
-                    muto.where(muto.where(cnMap[cn1]).or(cnMap[cn2])).and(cnMap[cn3])
+                    muto
+                        .where(muto.where(cnMap[cn1]).or(cnMap[cn2]))
+                        .and(cnMap[cn3])
                 );
 
                 expect(qry).toBeInstanceOf(bob.BoolQuery);
@@ -163,17 +179,21 @@ describe('parse', () => {
                     bob
                         .boolQuery()
                         .must([
-                            bob.boolQuery().should([cnQryMap[cn1], cnQryMap[cn2]]),
+                            bob
+                                .boolQuery()
+                                .should([cnQryMap[cn1], cnQryMap[cn2]]),
                             cnQryMap[cn3]
                         ])
                 );
             });
 
-            test(`${cnNamesMap[cn1]} and (${cnNamesMap[cn2]} or ${cnNamesMap[
-                cn3
-            ]})`, () => {
+            test(`${cnNamesMap[cn1]} and (${cnNamesMap[cn2]} or ${
+                cnNamesMap[cn3]
+            })`, () => {
                 const qry = parse(
-                    muto.where(cnMap[cn1]).and(muto.where(cnMap[cn2]).or(cnMap[cn3]))
+                    muto
+                        .where(cnMap[cn1])
+                        .and(muto.where(cnMap[cn2]).or(cnMap[cn3]))
                 );
 
                 expect(qry).toBeInstanceOf(bob.BoolQuery);
@@ -182,16 +202,20 @@ describe('parse', () => {
                         .boolQuery()
                         .must([
                             cnQryMap[cn1],
-                            bob.boolQuery().should([cnQryMap[cn2], cnQryMap[cn3]])
+                            bob
+                                .boolQuery()
+                                .should([cnQryMap[cn2], cnQryMap[cn3]])
                         ])
                 );
             });
 
-            test(`${cnNamesMap[cn1]} or (${cnNamesMap[cn2]} and ${cnNamesMap[
-                cn3
-            ]})`, () => {
+            test(`${cnNamesMap[cn1]} or (${cnNamesMap[cn2]} and ${
+                cnNamesMap[cn3]
+            })`, () => {
                 const qry = parse(
-                    muto.where(cnMap[cn1]).or(muto.where(cnMap[cn2]).and(cnMap[cn3]))
+                    muto
+                        .where(cnMap[cn1])
+                        .or(muto.where(cnMap[cn2]).and(cnMap[cn3]))
                 );
 
                 expect(qry).toBeInstanceOf(bob.BoolQuery);
@@ -234,8 +258,12 @@ describe('parse', () => {
                         bob
                             .boolQuery()
                             .should([
-                                bob.boolQuery().must([cnQryMap[cn1], cnQryMap[cn2]]),
-                                bob.boolQuery().must([cnQryMap[cn3], cnQryMap[cn4]])
+                                bob
+                                    .boolQuery()
+                                    .must([cnQryMap[cn1], cnQryMap[cn2]]),
+                                bob
+                                    .boolQuery()
+                                    .must([cnQryMap[cn3], cnQryMap[cn4]])
                             ])
                     );
                 });
@@ -255,8 +283,12 @@ describe('parse', () => {
                         bob
                             .boolQuery()
                             .must([
-                                bob.boolQuery().should([cnQryMap[cn1], cnQryMap[cn2]]),
-                                bob.boolQuery().should([cnQryMap[cn3], cnQryMap[cn4]])
+                                bob
+                                    .boolQuery()
+                                    .should([cnQryMap[cn1], cnQryMap[cn2]]),
+                                bob
+                                    .boolQuery()
+                                    .should([cnQryMap[cn3], cnQryMap[cn4]])
                             ])
                     );
                 });
@@ -296,7 +328,9 @@ describe('parse', () => {
                         bob
                             .boolQuery()
                             .should([
-                                bob.boolQuery().must([cnQryMap[cn1], cnQryMap[cn2]]),
+                                bob
+                                    .boolQuery()
+                                    .must([cnQryMap[cn1], cnQryMap[cn2]]),
                                 bob
                                     .boolQuery()
                                     .must([
@@ -304,7 +338,10 @@ describe('parse', () => {
                                         cnQryMap[cn4],
                                         bob
                                             .boolQuery()
-                                            .should([cnQryMap[cn5], cnQryMap[cn6]])
+                                            .should([
+                                                cnQryMap[cn5],
+                                                cnQryMap[cn6]
+                                            ])
                                     ])
                             ])
                     );
@@ -333,7 +370,9 @@ describe('parse', () => {
                         bob
                             .boolQuery()
                             .must([
-                                bob.boolQuery().should([cnQryMap[cn1], cnQryMap[cn2]]),
+                                bob
+                                    .boolQuery()
+                                    .should([cnQryMap[cn1], cnQryMap[cn2]]),
                                 bob
                                     .boolQuery()
                                     .should([
@@ -341,7 +380,10 @@ describe('parse', () => {
                                         cnQryMap[cn4],
                                         bob
                                             .boolQuery()
-                                            .must([cnQryMap[cn5], cnQryMap[cn6]])
+                                            .must([
+                                                cnQryMap[cn5],
+                                                cnQryMap[cn6]
+                                            ])
                                     ])
                             ])
                     );
@@ -382,7 +424,11 @@ describe('parse', () => {
                                         muto
                                             .where(cnMap[cn5])
                                             .or(cnMap[cn6])
-                                            .or(muto.where(cnMap[cn7]).and(cnMap[cn8]))
+                                            .or(
+                                                muto
+                                                    .where(cnMap[cn7])
+                                                    .and(cnMap[cn8])
+                                            )
                                     )
                             )
                     );
@@ -392,7 +438,9 @@ describe('parse', () => {
                         bob
                             .boolQuery()
                             .should([
-                                bob.boolQuery().must([cnQryMap[cn1], cnQryMap[cn2]]),
+                                bob
+                                    .boolQuery()
+                                    .must([cnQryMap[cn1], cnQryMap[cn2]]),
                                 bob
                                     .boolQuery()
                                     .must([
@@ -405,7 +453,10 @@ describe('parse', () => {
                                                 cnQryMap[cn6],
                                                 bob
                                                     .boolQuery()
-                                                    .must([cnQryMap[cn7], cnQryMap[cn8]])
+                                                    .must([
+                                                        cnQryMap[cn7],
+                                                        cnQryMap[cn8]
+                                                    ])
                                             ])
                                     ])
                             ])
@@ -433,7 +484,11 @@ describe('parse', () => {
                                         muto
                                             .where(cnMap[cn5])
                                             .and(cnMap[cn6])
-                                            .and(muto.where(cnMap[cn7]).or(cnMap[cn8]))
+                                            .and(
+                                                muto
+                                                    .where(cnMap[cn7])
+                                                    .or(cnMap[cn8])
+                                            )
                                     )
                             )
                     );
@@ -443,7 +498,9 @@ describe('parse', () => {
                         bob
                             .boolQuery()
                             .must([
-                                bob.boolQuery().should([cnQryMap[cn1], cnQryMap[cn2]]),
+                                bob
+                                    .boolQuery()
+                                    .should([cnQryMap[cn1], cnQryMap[cn2]]),
                                 bob
                                     .boolQuery()
                                     .should([
@@ -525,7 +582,9 @@ describe('parse', () => {
                         bob
                             .boolQuery()
                             .should([
-                                bob.boolQuery().must([cnQryMap[cn1], cnQryMap[cn2]]),
+                                bob
+                                    .boolQuery()
+                                    .must([cnQryMap[cn1], cnQryMap[cn2]]),
                                 bob
                                     .boolQuery()
                                     .must([
@@ -597,7 +656,9 @@ describe('parse', () => {
                         bob
                             .boolQuery()
                             .must([
-                                bob.boolQuery().should([cnQryMap[cn1], cnQryMap[cn2]]),
+                                bob
+                                    .boolQuery()
+                                    .should([cnQryMap[cn1], cnQryMap[cn2]]),
                                 bob
                                     .boolQuery()
                                     .should([
@@ -632,7 +693,9 @@ describe('parse', () => {
     it('throws error for expression with mixed `and`, `or`', () => {
         expect(() =>
             parse(
-                `${cnMap.numLt} and ${cnMap.strEq} or ${cnMap.bool} or ${cnMap.exists} and ${cnMap.missing}`
+                `${cnMap.numLt} and ${cnMap.strEq} or ${cnMap.bool} or ${
+                    cnMap.exists
+                } and ${cnMap.missing}`
             )
         ).toThrow();
     });

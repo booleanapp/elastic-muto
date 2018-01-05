@@ -197,7 +197,9 @@ class Condition {
         if (this._operator === 'exists' || this._operator === 'missing') {
             return `["${this._prop}"] ${this._operator}`;
         }
-        return `["${this._prop}"] ${this._operator} ${JSON.stringify(this._value)}`;
+        return `["${this._prop}"] ${this._operator} ${JSON.stringify(
+            this._value
+        )}`;
     }
 
     /**

@@ -45,7 +45,9 @@ class Where {
     _addCondition(type, condition) {
         if (isEmpty(this._join)) this._join = type;
         else if (this._join !== type) {
-            console.log('Use nested Where class instances for combining `and` with `or`');
+            console.log(
+                'Use nested Where class instances for combining `and` with `or`'
+            );
             throw new Error('Illegal operation! Join types cannot be mixed!');
         }
 

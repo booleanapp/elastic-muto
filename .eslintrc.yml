@@ -1,0 +1,8 @@
+root: true
+extends: chatur
+rules:
+  node/no-unsupported-features:
+    - error
+    # We use babel. So change the version instead of inheriting from
+    # package.json#engines
+    - version: 6
