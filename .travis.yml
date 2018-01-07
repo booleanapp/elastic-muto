@@ -15,14 +15,6 @@ cache: yarn
 script: yarn run check
 
 after_success:
-  - yarn global add coveralls semantic-release gh-pages
+  - yarn global add coveralls travis-deploy-once
   - cat ./coverage/lcov.info | coveralls
-  - 'semantic-release pre &&
-    npm run -s build &&
-    gh-pages --add
-      --dist .
-      --src "{browser/*,docs/*}"
-      --repo "https://$GH_TOKEN@github.com/booleanapp/elastic-muto.git"
-      --message "docs: Build docs for `npm run -s print-version`" &&
-    npm publish &&
-    semantic-release post'
+  - travis-deploy-once "yarn global add semantic-release@12 && semantic-release"
